@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: qb-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: qb
+    spec:
+      containers:
+      - name: qb
+        image: abderrazak/qb:latest
+        ports:
+        - containerPort: 8080
